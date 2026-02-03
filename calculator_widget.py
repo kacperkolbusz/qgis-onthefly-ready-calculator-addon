@@ -4,10 +4,10 @@ Provides the UI and functionality for the calculator panel
 """
 
 from PyQt5.QtWidgets import (
-    QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QPushButton, 
-    QLineEdit, QLabel, QListWidget, QListWidgetItem, QSplitter
+    QWidget, QVBoxLayout, QHBoxLayout, QGridLayout, QPushButton,
+    QLineEdit, QLabel, QListWidget, QListWidgetItem
 )
-from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QApplication
 import math
@@ -261,7 +261,9 @@ class CalculatorWidget(QWidget):
                 return f"math.factorial({num})"
             expression = re.sub(r'(\d+)!', factorial_replace, expression)
             
-            result = eval(expression)
+            # Safely evaluate with restricted builtins
+            safe_dict = {"__builtins__": {}, "math": math}
+            result = eval(expression, safe_dict)  # noqa: S307
             # Convert to float to ensure consistent formatting
             result = float(result)
             
@@ -449,3 +451,4 @@ class CalculatorWidget(QWidget):
         """Copy the current display value to clipboard"""
         clipboard = QApplication.clipboard()
         clipboard.setText(self.display.text())
+

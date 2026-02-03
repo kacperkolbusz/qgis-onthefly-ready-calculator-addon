@@ -17,3 +17,4 @@ def classFactory(iface):
         The plugin class instance
     """
     return QgisCalculatorPlugin(iface)
+
