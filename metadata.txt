@@ -1,0 +1,18 @@
+[general]
+name=OntheflyReadyCalculatorAddon
+qgisMinimumVersion=3.0
+qgisMaximumVersion=3.99
+description=ORCA - On-the-flyReadyCalculatorAdd-on: A simple calculator plugin for QGIS that performs calculations in a dockable panel
+version=0.9.0
+author=Kacper Kolbusz
+email=kk.at.work@pm.me
+about=This plugin provides a calculator interface as a dockable panel in QGIS, allowing quick mathematical calculations without leaving the application.
+tracker=https://github.com/kacperkolbusz/qgis-onthefly-ready-calculator-addon/issues
+repository=https://github.com/kacperkolbusz/qgis-onthefly-ready-calculator-addon
+homepage=https://github.com/kacperkolbusz/qgis-onthefly-ready-calculator-addon
+category=Utilities
+icon=icons/main.ico
+hasProcessingProvider=no
+tags=utilities, calculation
+experimental=False
+deprecated=False
